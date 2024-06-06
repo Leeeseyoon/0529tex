@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css">
+</head>
+<style>
+    
+    body{
+        margin: 0;
+    }
+    .container{
+        
+        position: relative;
+        width: 1200px; height: 600px; padding: 20px; margin: auto;
+        background-color: #f0e4d4;display: flex; justify-content: center; align-items: center;
+    }
+    .section:nth-child(even){
+        background-color: #93582e;
+    }
+    .container .box{overflow: hidden;}
+    .container img{transition: all 0.2s linear;}
+    .container img:hover{ transform: scale(1.4);  }
+
+    h1{color: white; font-size: 150px; position: absolute; top: 0;margin: 0;}
+    .box{width: 200px; height: 200px; margin: 10px;background-color: lightyellow; border-radius: 20%; text-align: center;}
+    .box img{border-radius: 20%; display: block; margin: auto; }
+    .container .sakura{margin-top: 45px;}
+    .container .phone{margin-top: 40px;}
+    .tbox{background-color: #d18063; width: 500px; height: 50px;background-color: #f9d9ca;}
+    .vscode{width: 200px; height: 200px; background-color: #180a47; border-radius: 20%;}
+    .vscode img{margin-top: 50px;  }
+ 
+    
+
+    .back-to-position{ 
+        /* opacity: 0; */
+        transition: 1s;
+    }
+    .back-to-position.to-right{transform: translateX(-150px);}
+    .back-to-position.to-left{transform: translateX(150px);}
+    .show .back-to-position{opacity: 1;transform: translateX(0);}
+
+    .show .back-to-position.delta-0{
+        transition-delay:0s ;
+    }.show .back-to-position.delta-1{
+        transition-delay:.3s ;
+    }
+    h1{font-family: "Galmuri14", sans-serif; font-size: 50px; color: #d18063;}
+    h2{font-family: "Galmuri14", sans-serif;}
+
+</style>
+<body>
+    <section class="section scroll-spy">
+        <div class="container">
+            <h1>Home</h1>
+            <div class="box back-to-position to-right delay-0"><img src="img/e48f464c96797cea2558e7e6ace5ce93.jpg" width="200px" height="200px" alt=""></div>
+            <div class="box back-to-position to-left delay-1"><img src="img/9f18e552a4dc869ca80ab2f1e756f43f.jpg" width="200px" height="200px" alt=""></div>
+        </div>
+    </section>
+    <section class="section scroll-spy">
+        <div class="container">
+            <h1>About</h1>
+            <div class="box back-to-position to-right delay-0"><img src="img/KakaoTalk_20240606_105300464.jpg" width="200px" height="200px" alt=""></div>
+            <div class="back-to-position to-left delay-1">
+                <div class="tbox">
+                    <h2>이세윤의 웹디자인 포트폴리오입니다.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section scroll-spy">
+        <div class="container">
+            <h1>Skills</h1>
+            <div class="box back-to-position to-right delay-0"><img src="img/Adobe_Photoshop_CC_icon.svg.png"width="200px" height="200px" alt=""></div>
+            <div class="box back-to-position to-left delay-1" ><img src="img/images.png"width="200px" height="200px" alt=""></div>
+            <div class="box back-to-position to-right delay-0"><img src="img/Adobe_InDesign_CC_icon.svg.png"width="200px" height="200px" alt=""></div>
+            <div class="vscode back-to-position to-left delay-1"><img  src="img/vscode-logo.png" width="200px" height="100px" alt=""></div>
+        </div>
+    </section>
+    <section class="section scroll-spy">
+        <div class="container Wbox">
+            <h1>Works</h1>
+            <div class="box back-to-position to-right delay-0"><img src="img/다운로드.jpg" width="200px" height="200px" alt=""></div>
+            <div class="box back-to-position to-left delay-1"><img src="img/B001613920.jpg" width="200px" height="200px" alt=""></div>
+        </div>
+    </section>
+    <section class="section scroll-spy">
+        <div class="container">
+            <h1>Contact</h1>
+            <div class="box back-to-position to-right delay-0"><img class="sakura" src="img/385959.png" width="100px" height="100px" alt=""></div>
+            <div class="box back-to-position to-left delay-1"><img class="phone" src="img/pngwing.com (22).png" width="100px" height="110px"></div>
+        </div>
+    </section>
+
+
+    <script>
+        const spyEls = document.querySelectorAll('section.scroll-spy');
+        const controller = new ScrollMagic.Controller();
+
+        spyEls.forEach(function(spyEl){
+            new ScrollMagic.
+            Scene({
+                triggerElement: spyEl,
+            })
+            .setClassToggle(spyEl, 'show')
+            .addTo(controller);
+        });
+    </script>
+
+</body>
+</html>
